@@ -48,17 +48,17 @@ def create_post(day):
 
     file_path = f"{folder_path}/{file_name_text}"
 
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding='utf-8') as f:
         caption_text = f.read()
 
     caption_input = driver.find_element_by_css_selector('div.xw2csxc:nth-child(1)')
-    actions = ActionChains(driver)
-    actions.move_to_element(caption_input)
-    actions.click()
+    # actions = ActionChains(driver)
+    # actions.move_to_element(caption_input)
+    # actions.click()
+    caption_input.click()
     for char in caption_text:
-        actions.send_keys(char)
-        actions.pause(0.05)
-    actions.perform()
+        caption_input.send_keys(char)
+        time.sleep(0.05)
 
     time.sleep(3)
     driver.find_element_by_css_selector('.xyamay9 > div:nth-child(1)').click()
