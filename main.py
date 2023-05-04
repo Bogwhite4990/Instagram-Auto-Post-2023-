@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import os
 import datetime
 import time
@@ -52,9 +51,6 @@ def create_post(day):
         caption_text = f.read()
 
     caption_input = driver.find_element_by_css_selector('div.xw2csxc:nth-child(1)')
-    # actions = ActionChains(driver)
-    # actions.move_to_element(caption_input)
-    # actions.click()
     caption_input.click()
     for char in caption_text:
         caption_input.send_keys(char)
